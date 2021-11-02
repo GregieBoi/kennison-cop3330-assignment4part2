@@ -1,0 +1,78 @@
+@startuml
+
+class App {
+..Void Methods..
++ main()
++ start()
+}
+
+class todoLists {
+ArrayList<todoList> lists
+..Basic Getter..
++ getLists()
+..Basic Setter..
++ setLists()
+}
+
+class todoList {
+String title
+ArrayList<item> items
+..Basic Getter..
++ getTitle()
++ getItems()
+..Basic Setter..
++ setTitle()
++ setItems()
+}
+
+class item {
+String description
+String due
+..Basic Getter..
++ getDescription()
++ getDue()
+..Basic Setter..
++ setDescription()
++ setDue()
+}
+
+class ControllerListView {
+..Methods..
++ openList()
++ openItem()
++ onOpen()
++ onSave()
++ onSaveAll()
++ onExit()
++ onSelect()
++ onAddList()
++ onEditList()
++ onRemoveList()
++ onAddItem()
++ onEditItem()
++ onRemoveItem()
++ onMarkCompleted()
+}
+
+class ControllerNewList {
+..Methods..
++ onFinish()
++ onName()
+}
+
+class ControllerNewItem {
+..Methods..
++ onFinish()
++ onDate()
++ onDescription()
+}
+
+App *- todoLists
+todoLists *- todoList
+todoList *- item
+
+App *- ControllerListView
+ControllerListView *- ControllerNewList
+ControllerListView *- ControllerNewItem
+
+@enduml
